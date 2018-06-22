@@ -1,0 +1,2 @@
+<!--pages/mysqltest/mysqltest.wxml-->
+<button bindtap='GetMysqlMessage'>{{test}}</button>
