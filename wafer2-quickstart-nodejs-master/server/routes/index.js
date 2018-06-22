@@ -39,12 +39,18 @@ router.get('/test_get', controllers.test_get)
 router.post('/UserRegistion',controllers.UserRegistion)
 
 // POST StopWatch
-// router.post('/StopWatch', controllers.StopWatch)
+router.post('/StopWatch', controllers.StopWatch)
 
 // POST StartWatch
-// router.post('/StartWatch', controllers.StartWatch)
+router.post('/StartWatch', controllers.StartWatch)
 
 // POST ChecjWatch
 router.post('/CheckWatch', controllers.CheckWatch)
+
+// POST WakeUp
+router.post('/WakeUp', controllers.WakeUp)
+
+// POST Sleep
+router.post('/Sleep', controllers.Sleep)
 
 module.exports = router

@@ -4,5 +4,6 @@ module.exports = async ctx => {
   let timestamp = Date.parse(new Date());
   timestamp = timestamp / 1000;
   let userInfo = ctx.request.body.userInfo ? ctx.request.body.userInfo : 9998
-  ctx.state.data = await Check.Check(userInfo.openId)
+  let result = await mysql('BedTime').insert({ OpenId: userInfo.openId, timestamp: timestamp, Type: 2 })
+  ctx.state.data = 0
 }

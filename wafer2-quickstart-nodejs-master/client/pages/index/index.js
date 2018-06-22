@@ -246,7 +246,7 @@ Page({
         }
       })
     },
-/*
+
     // 停止学习
     StopWatch: function(){
       wx.request({
@@ -266,19 +266,19 @@ Page({
     // 开始学习
     StartWatch: function () {
       wx.request({
-        url: config.service.StopWatchUrl,
+        url: config.service.StartWatchUrl,
         method: 'post',
         //这里定义传递的参数
         data: {
+          summary: "托福词汇",
           userInfo: app.globalData.userInfo
         },
         success: res => {
-
           console.log(res)
         }
       })
     },
-*/
+
     //检查是否正在学习
     CheckWatch: function(){
       wx.request({
@@ -295,5 +295,43 @@ Page({
         }
       })
       return 1
+    },
+
+
+    //用户起床  数据库type列为1
+    WakeUp: function () {
+      wx.request({
+        url: config.service.WakeUpUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
+    },
+
+    //用户睡觉  数据库type列为2
+    Sleep: function () {
+      wx.request({
+        url: config.service.SleepUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
     } 
+
+
+
 })

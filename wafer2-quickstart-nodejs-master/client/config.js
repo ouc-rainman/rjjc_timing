@@ -30,13 +30,19 @@ var config = {
         UserRegistionUrl: `${host}/weapp/UserRegistion`,
 
         // StopWatch
-       // StopWatchUrl: `${host}/weapp/StopWatch`,
+        StopWatchUrl: `${host}/weapp/StopWatch`,
 
         // StartWatch
-        // StartWatchUrl: `${host}/weapp/StartWatch`,
+        StartWatchUrl: `${host}/weapp/StartWatch`,
 
         // CheckWatch
-        CheckWatchUrl: `${host}/weapp/CheckWatch`
+        CheckWatchUrl: `${host}/weapp/CheckWatch`,
+
+        // WakeUp
+        WakeUpUrl: `${host}/weapp/WakeUp`,
+
+        // Sleep
+        SleepUrl: `${host}/weapp/Sleep`
     }
 };
 

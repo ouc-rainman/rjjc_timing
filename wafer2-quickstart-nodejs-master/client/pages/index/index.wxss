@@ -127,3 +127,13 @@ page {
     line-height: 36rpx;
     word-break: break-all;
 }
+.con{
+  width: 100%;
+}
+.test{
+  display: inline-block;
+  width: 200rpx;
+}
+button{
+  font-size: 26rpx;
+}
