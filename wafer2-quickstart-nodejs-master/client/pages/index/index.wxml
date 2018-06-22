@@ -77,6 +77,16 @@
         <button bindtap='CalculateAverage'>平均时长</button>
     </view>
 
+
+    <view class="test">
+        <button bindtap='GetToday'>今日学习</button>
+    </view>
+
+    <view class="test">
+        <button bindtap='GetHistory'>历史记录</button>
+    </view>
+
+
     </view>
 
     
