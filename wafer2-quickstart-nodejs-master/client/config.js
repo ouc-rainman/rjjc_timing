@@ -42,7 +42,17 @@ var config = {
         WakeUpUrl: `${host}/weapp/WakeUp`,
 
         // Sleep
-        SleepUrl: `${host}/weapp/Sleep`
+        SleepUrl: `${host}/weapp/Sleep`,
+
+        // CalculateTotalTime
+        CalculateTotalTimeUrl: `${host}/weapp/CalculateTotalTime`,
+
+        // CalculateTotalDay
+        CalculateTotalDayUrl: `${host}/weapp/CalculateTotalDay`,
+
+        // CalculateAverage
+        CalculateAverageUrl: `${host}/weapp/CalculateAverage`
+
     }
 };
 

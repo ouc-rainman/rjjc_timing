@@ -53,4 +53,13 @@ router.post('/WakeUp', controllers.WakeUp)
 // POST Sleep
 router.post('/Sleep', controllers.Sleep)
 
+// POST CalculateTotalTime
+router.post('/CalculateTotalTime', controllers.CalculateTotalTime)
+
+// POST CalculateTotalDay
+router.post('/CalculateTotalDay', controllers.CalculateTotalDay)
+
+// POST CalculateAverage
+router.post('/CalculateAverage', controllers.CalculateAverage)
+
 module.exports = router

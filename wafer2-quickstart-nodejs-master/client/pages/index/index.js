@@ -221,13 +221,12 @@ Page({
     //跳转页面到mysqltest
     ToMysqlTest: function(){
       //console.log(this.data.userInfo)
-      /*
+      
       wx.navigateTo({
         url: '../mysqltest/mysqltest',
       })
-      */
-      var result = this.CheckWatch()
-      console.log(result)
+      
+     
     },
 
     //用户第一次登陆，保存信息到数据库
@@ -330,8 +329,59 @@ Page({
 
         }
       })
+    } ,
+
+    //计算总学习时长
+    CalculateTotalTime: function () {
+      wx.request({
+        url: config.service.CalculateTotalTimeUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
+    } ,
+
+
+    //计算总的学习天数
+    CalculateTotalDay: function () {
+      wx.request({
+        url: config.service.CalculateTotalDayUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
+    } ,
+
+
+    //计算每日平均学习时长
+    CalculateAverage: function () {
+      wx.request({
+        url: config.service.CalculateAverageUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
     } 
-
-
 
 })

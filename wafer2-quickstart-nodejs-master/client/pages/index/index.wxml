@@ -64,6 +64,19 @@
     <view class="test">
         <button bindtap='Sleep'>睡觉</button>
     </view>
+
+    <view class="test">
+        <button bindtap='CalculateTotalTime'>计算总时长</button>
+    </view>
+
+    <view class="test">
+        <button bindtap='CalculateTotalDay'>总天数</button>
+    </view>
+
+    <view class="test">
+        <button bindtap='CalculateAverage'>平均时长</button>
+    </view>
+
     </view>
 
     
