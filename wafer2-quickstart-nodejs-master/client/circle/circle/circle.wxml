@@ -1,0 +1,35 @@
+<!--circle/circle/circle.wxml-->
+<text>circle/circle/circle.wxml</text>
+<!--scroll/switch/switch.wxml-->
+<text>scroll/switch/switch.wxml</text>
+<view >
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">结伴</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">动态</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">关注</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">附近</view>
+        <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">分享</view>
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+     style="height:{{winHeight}}rpx">
+        <swiper-item wx:for="{{[0,1,2,3,4]}}" wx:key="key" wx:for-index="index1">
+        <view>{{index1}}</view>
+            <scroll-view scroll-y="true" class="scoll-h" >
+                <block wx:for="{{expertList[index1]}}" wx:key="*this" wx:for-index="index2">
+                    <view class="item-ans">
+                        <view class="avatar">
+                            <image class="img" src="http://ookzqad11.bkt.clouddn.com/avatar.png"></image>
+                        </view>
+                        <view class="expertInfo">
+                            <view class="name">{{item.name}}</view>
+                            <view class="tag">{{item.name}}</view>
+                            <view class="answerHistory">114个回答，2234人听过 </view>
+                        </view>
+                        <navigator url="/pages/askExpert/expertDetail" class="askBtn">问TA</navigator> 
+                    </view>
+                </block>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+

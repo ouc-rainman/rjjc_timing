@@ -62,4 +62,10 @@ router.post('/CalculateTotalDay', controllers.CalculateTotalDay)
 // POST CalculateAverage
 router.post('/CalculateAverage', controllers.CalculateAverage)
 
+// POST GetToday
+router.post('/GetToday', controllers.GetToday)
+
+// POST GetHistory
+router.post('/GetHistory', controllers.GetHistory)
+
 module.exports = router

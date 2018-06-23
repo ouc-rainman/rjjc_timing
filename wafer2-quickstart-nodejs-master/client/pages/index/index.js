@@ -382,6 +382,67 @@ Page({
 
         }
       })
+    }, 
+
+    
+    //得到今天的学习日程和睡眠时间
+    GetToday: function () {
+      var timestamp = Date.parse(new Date());
+      timestamp = timestamp / 1000;
+      var n = timestamp * 1000;
+      var date = new Date(n);
+      //年  
+      var Y = date.getFullYear();
+      //月  
+      var M = date.getMonth();
+      //日  
+      var D = date.getDate();
+      //时  
+      var h = date.getHours();
+      //分  
+      var m = date.getMinutes();
+      //秒  
+      var s = date.getSeconds();
+      //今天的开始时间
+      var ss = timestamp-s-m*60-h*60*60
+      var ee = ss+24*60*60
+      // console.log(timestamp,ss,ee)
+      wx.request({
+        url: config.service.GetTodayUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo,
+          TodayStart: ss,
+          TodayEnd: ee
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
+    } ,
+
+
+    //得到这个人的所有时间的学习和睡眠时间
+    GetHistory: function () {
+      wx.request({
+        url: config.service.GetHistoryUrl,
+        method: 'post',
+        //这里定义传递的参数
+        data: {
+          userInfo: app.globalData.userInfo
+        },
+        success: res => {
+          let temp = res.data.data
+          console.log(temp)
+
+        }
+      })
     } 
+
+
+
 
 })

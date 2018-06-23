@@ -51,7 +51,13 @@ var config = {
         CalculateTotalDayUrl: `${host}/weapp/CalculateTotalDay`,
 
         // CalculateAverage
-        CalculateAverageUrl: `${host}/weapp/CalculateAverage`
+        CalculateAverageUrl: `${host}/weapp/CalculateAverage`,
+
+        // GetToday
+        GetTodayUrl: `${host}/weapp/GetToday`,
+
+        // GetHistory
+        GetHistoryUrl: `${host}/weapp/GetHistory`
 
     }
 };

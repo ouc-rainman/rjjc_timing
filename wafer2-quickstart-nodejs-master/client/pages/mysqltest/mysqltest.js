@@ -1,6 +1,7 @@
 // pages/mysqltest/mysqltest.js
 var app = getApp(); 
 var config = require('../../config')
+var convertTime = require("../../functionjs/convertTime.js")
 Page({
 
   /**
@@ -107,5 +108,15 @@ Page({
       }
     }
     )
+  },
+
+
+  //时间转换
+  
+  ShowTime: function(){
+    let timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    let tt = convertTime.convertTime(timestamp)
+    console.log(tt)
   }
 })
