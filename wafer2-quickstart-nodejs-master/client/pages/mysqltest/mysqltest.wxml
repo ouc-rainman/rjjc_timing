@@ -1,3 +1,4 @@
 <!--pages/mysqltest/mysqltest.wxml-->
 <button bindtap='GetMysqlMessage'>{{test}}</button>
+<button bindtap='ShowDiff'>时间差</button>
 <button bindtap='ShowTime'>时间转换</button>
