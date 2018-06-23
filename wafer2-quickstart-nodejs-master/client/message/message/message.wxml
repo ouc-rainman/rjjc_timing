@@ -1,0 +1,40 @@
+<!--message/message/message.wxml-->
+<import src="../../wxSearch/wxSearch.wxml" />
+<view style='display:flex;'>
+  <navigator url="../../info/info/info" open-type="navigate">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </navigator>
+  <view class="weui-search-bar" style='display:flex;'>
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{wxSearchData.value}}" bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindblur="wxSearchBlur" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<template is="wxSearch" data="{{wxSearchData}}" />
+<view style='diplay:flex;'>
+  <view style='flex:1;'>
+    <view style='display:flex;'>
+      <image class="image" src="../../images/shutong.png"></image>
+      <view style='flex:3;border-bottom: 1rpx solid #d7d6dc;'>
+      <view style="font-size:50rpx;font-weight:500;font-family:微软雅黑;">伴读书童9527</view>
+      <view style="font-size:30rpx;">一周又快结束了，时光飞逝，不知道你抓住了没有...</view>
+      </view>
+    </view>
+  </view>
+  <view style='flex:1;'>
+    <view style='display:flex;' bindtap='goToStudyRecord'>
+      <image class="image" src="../../images/shuju.png" ></image>
+      <view style='flex:3;border-bottom: 1rpx solid #d7d6dc;'>
+      <view style="font-size:50rpx;font-weight:500;font-family:微软雅黑;">我的学习数据</view>
+      <view style="font-size:30rpx;">这里是我的学习数据</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,4 +1,4 @@
-var convertTime = function (timestamp){
+var convertTime = function (timestamp) {
   var n = timestamp * 1000;
   var date = new Date(n);
   //年  
@@ -14,9 +14,9 @@ var convertTime = function (timestamp){
   //秒  
   var s = date.getSeconds();
 
-  var sec_data = {'Y': Y, 'M': M, 'D': D, 'h': h, 'm':m, 's':s}
+  var sec_data = { 'Y': Y, 'M': M, 'D': D, 'h': h, 'm': m, 's': s }
   return sec_data
-   //console.log("当前时间：" + Y + M + D + h + ":" + m + ":" + s); 
+  //console.log("当前时间：" + Y + M + D + h + ":" + m + ":" + s); 
 }
 
 module.exports.convertTime = convertTime

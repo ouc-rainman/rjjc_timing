@@ -9,8 +9,7 @@ Page({
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: '',
-        temp: -1
+        requestResult: ''
     },
 
     // 用户登录示例
@@ -281,7 +280,6 @@ Page({
 
     //检查是否正在学习
     CheckWatch: function(){
-      var that = this
       wx.request({
         url: config.service.CheckWatchUrl,
         method: 'post',
@@ -290,14 +288,12 @@ Page({
           userInfo: app.globalData.userInfo
         },
         success: res => {
-          console.log(res.data.data)
-          this.setData({
-            temp: res.data.data
-          })
+          let temp = res.data.data
+          console.log(temp)
+
         }
       })
-      console.log(this.data.temp)
-      return this.data.temp
+      return 1
     },
 
 
@@ -444,85 +440,8 @@ Page({
 
         }
       })
-    },
+    } 
 
-    //得到 昨天 学习和睡眠时间
-    GetYesterday: function () {
-      var timestamp = Date.parse(new Date());
-      timestamp = timestamp / 1000;
-      var n = timestamp * 1000;
-      var date = new Date(n);
-      //年  
-      var Y = date.getFullYear();
-      //月  
-      var M = date.getMonth();
-      //日  
-      var D = date.getDate();
-      //时  
-      var h = date.getHours();
-      //分  
-      var m = date.getMinutes();
-      //秒  
-      var s = date.getSeconds();
-      //今天的开始时间
-      var ee = timestamp - s - m * 60 - h * 60 * 60
-      var ss = ee - 24 * 60 * 60
-      // console.log(timestamp,ss,ee)
-      wx.request({
-        url: config.service.GetTodayUrl,
-        method: 'post',
-        //这里定义传递的参数
-        data: {
-          userInfo: app.globalData.userInfo,
-          TodayStart: ss,
-          TodayEnd: ee
-        },
-        success: res => {
-          let temp = res.data.data
-          console.log(temp)
-
-        }
-      })
-    },
-
-    //得到 前天 学习和睡眠时间
-    GetTwoDaysAgo: function () {
-      var timestamp = Date.parse(new Date());
-      timestamp = timestamp / 1000;
-      var n = timestamp * 1000;
-      var date = new Date(n);
-      //年  
-      var Y = date.getFullYear();
-      //月  
-      var M = date.getMonth();
-      //日  
-      var D = date.getDate();
-      //时  
-      var h = date.getHours();
-      //分  
-      var m = date.getMinutes();
-      //秒  
-      var s = date.getSeconds();
-      //今天的开始时间
-      var ee = timestamp - s - m * 60 - h * 60 * 60 - 24 * 60 * 60
-      var ss = ee - 24 * 60 * 60
-      // console.log(timestamp,ss,ee)
-      wx.request({
-        url: config.service.GetTodayUrl,
-        method: 'post',
-        //这里定义传递的参数
-        data: {
-          userInfo: app.globalData.userInfo,
-          TodayStart: ss,
-          TodayEnd: ee
-        },
-        success: res => {
-          let temp = res.data.data
-          console.log(temp)
-
-        }
-      })
-    }
 
 
 

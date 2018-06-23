@@ -1,0 +1,27 @@
+/* pages/login/login.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx;
+}
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 40rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: black;
+  font-size: 20px;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 150rpx 0;
+  box-sizing: border-box;
+} 

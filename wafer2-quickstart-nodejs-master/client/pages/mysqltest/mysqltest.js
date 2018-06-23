@@ -2,7 +2,6 @@
 var app = getApp(); 
 var config = require('../../config')
 var convertTime = require("../../functionjs/convertTime.js")
-var calcuDiff = require("../../functionjs/calcuDiff.js")
 Page({
 
   /**
@@ -119,16 +118,5 @@ Page({
     timestamp = timestamp / 1000;
     let tt = convertTime.convertTime(timestamp)
     console.log(tt)
-  },
-
-  //时间差
-  ShowDiff: function () {
-    let timestamp = Date.parse(new Date());
-    timestamp = timestamp / 1000;
-    let timestamp2 = timestamp + 3725;
-    let tt = calcuDiff.calcuDiff(timestamp,timestamp2)
-    console.log(tt)
   }
-
-
 })

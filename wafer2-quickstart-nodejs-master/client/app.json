@@ -1,14 +1,53 @@
 {
   "pages":[
+    "pages/login/login",
     "pages/index/index",
+    "pages/sign/sign",
+    "message/message/message",
+
+    
+    "pages/logs/logs",
+    "schedule/plan/plan",
+    "schedule/schedule/schedule",
+    "schedule/startStudy/startStudy",
+    "schedule/studyRecord/studyRecord",
+    "circle/circle/circle",
+    "info/info/info",
+    "info/record/record",
+    "info/history/history",
+    "info/phone/phone",
+   
     "pages/addCgi/addCgi",
     "pages/mysqltest/mysqltest"
   ],
   "window":{
     "backgroundColor":"#F6F6F6",
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Timing",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "message/message/message",
+        "text": "消息",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message2.png"
+      },
+      {
+        "pagePath": "schedule/schedule/schedule",
+        "text": "学习日程",
+        "iconPath": "images/study_line.png",
+        "selectedIconPath": "images/study_line2.png"
+      },
+      {
+        "pagePath": "circle/circle/circle",
+        "text": "学习圈",
+        "iconPath": "images/circle.png",
+        "selectedIconPath": "images/circle2.png"
+      }
+    ]
   }
 }

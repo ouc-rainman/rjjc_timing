@@ -1,0 +1,7 @@
+<!--schedule/startStudy/startStudy.wxml-->
+<view class='container'>
+<text decode="{{true}}">当前正在学习&nbsp;&nbsp;&nbsp;{{summary}}</text>
+<text decode="{{true}}">开始学习时间&nbsp;&nbsp;&nbsp;</text>
+<text decode="{{true}}">已经学习了&nbsp;&nbsp;&nbsp;</text>
+<button bindtap='StopWatch'>停止学习</button>
+</view>

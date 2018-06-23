@@ -1,0 +1,17 @@
+/* schedule/studyRecord/studyRecord.wxss */
+page{
+    width: 100%;
+    height: 100%;
+  }
+.container {
+   width: 100%;
+    height: 100%;
+} 
+.content1{
+
+  text-align: center;
+}
+.content2{
+
+  text-align: left;
+}
