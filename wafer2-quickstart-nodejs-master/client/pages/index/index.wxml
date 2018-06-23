@@ -91,7 +91,7 @@
     </view>
 
     <view class="test">
-        <button bindtap='GetTwoDaysAgo'>昨日记录</button>
+        <button bindtap='GetTwoDaysAgo'>前天记录</button>
     </view>
 
     <view> {{temp}}</view>
