@@ -86,7 +86,15 @@
         <button bindtap='GetHistory'>历史记录</button>
     </view>
 
+    <view class="test">
+        <button bindtap='GetYesterday'>昨日记录</button>
+    </view>
 
+    <view class="test">
+        <button bindtap='GetTwoDaysAgo'>昨日记录</button>
+    </view>
+
+    <view> {{temp}}</view>
     </view>
 
     
