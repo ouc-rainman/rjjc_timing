@@ -2,9 +2,7 @@
   "pages":[
     "pages/login/login",
     "pages/index/index",
-    "pages/sign/sign",
-    "message/message/message",
-    
+    "pages/sign/sign",  
     "pages/message/message", 
     "pages/plan/plan",
     "pages/schedule/schedule",
@@ -16,16 +14,6 @@
     "pages/history/history",
     "pages/phone/phone",
     
-    
-    "schedule/plan/plan",
-    "schedule/schedule/schedule",
-    "schedule/startStudy/startStudy",
-    "schedule/studyRecord/studyRecord",
-    "circle/circle/circle",
-    "info/info/info",
-    "info/record/record",
-    "info/history/history",
-    "info/phone/phone",
    
     "pages/addCgi/addCgi",
     "pages/mysqltest/mysqltest"

@@ -1,5 +1,4 @@
 // pages/message/message.js
-var WxSearch = require('../../wxSearch/wxSearch.js')
 var app = getApp()
 Page({
 

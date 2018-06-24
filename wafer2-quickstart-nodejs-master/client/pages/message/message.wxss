@@ -1,6 +1,6 @@
 /* pages/message/message.wxss */
 
-@import "../../wxSearch/wxSearch.wxss";
+
 .userinfo-avatar {
   width: 80rpx;
   height: 80rpx;
