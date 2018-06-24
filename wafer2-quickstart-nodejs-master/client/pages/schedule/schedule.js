@@ -333,7 +333,7 @@ Page({
     var ee = timestamp - s - m * 60 - h * 60 * 60
     var ss = ee - 24 * 60 * 60
     console.log(ee)
-    console.log(util.formatStampTime(ss,'Y/M/D'))
+    console.log(util.formatStampTime(ee,'Y/M/D'))
     // console.log(timestamp,ss,ee)
     wx.request({
       url: config.service.GetTodayUrl,
@@ -403,7 +403,7 @@ Page({
           var c = "arrayTestY[" + i + "].EndTime"
           this.setData({
             [a]: calcuDiff.calcuDiff(this.data.arrayTestY[i].StartTime, this.data.arrayTestY[i].EndTime),
-            [b]: util.formatStampTime(this.data.arrayTestY[i].StartTime, 'h:m:s'),
+            [b]: util.formatStampTime(this.data.arrayTestY[i].StartTime, 'Y/M/D h:m:s'),
             [c]: util.formatStampTime(this.data.arrayTestY[i].EndTime, 'h:m:s')
           })
 

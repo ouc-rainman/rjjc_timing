@@ -13,6 +13,7 @@ Page({
    */
   data: {
     arrayTest: {},
+    array:{},
     today: ''
   },
 
@@ -91,10 +92,36 @@ Page({
         console.log("历史学习")
         console.log(temp)
         this.setData({
-          arrayTest: temp.Study.reverse()
+          arrayTest: temp.Study.reverse(),
+          array: merge_bed_study.merge_bed_study(temp),
         })
         console.log(this.data.arrayTest)
-
+        console.log(this.data.array)
+        var k
+        for (k = 0; k < this.data.array.length; k++) {
+          if (this.data.array[k].type == 1 || this.data.array[k].type == 2) {
+            console.log("hebing")
+            var a = "array[" + k + "].timestamp"
+            this.setData({
+              [a]: util.formatStampTime(this.data.array[k].timestamp, 'Y/M/D h:m:s')
+            })
+          }
+          else {
+            var a = "array[" + k + "].OpenId"
+            var b = "array[" + k + "].StartTime"
+            var c = "array[" + k + "].EndTime"
+            this.setData({
+              [a]: calcuDiff.calcuDiff(this.data.array[k].StartTime, this.data.array[k].EndTime),
+              [b]: util.formatStampTime(this.data.array[k].StartTime, 'Y/M/D h:m:s'),
+              [c]: util.formatStampTime(this.data.array[k].EndTime, 'Y/M/D h:m:s')
+            })
+          }
+        }
+        for (k = 0; k < this.data.array.length; k++) {
+          console.log(this.data.array[k].type)
+          if (this.data.array[k].type == undefined)
+            console.log("bucunz")
+        }
         var i
         var l = temp.Study.length - 1
         for (i = temp.Study.length - 1; i >= 0; i--) {
