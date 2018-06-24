@@ -49,6 +49,12 @@ Page({
         console.log(res)
       }
     })
+    setTimeout(function () {
+      wx.switchTab({
+        url: '../schedule/schedule',
+      })
+    }, 100
+    )
   },
   /**
    * 生命周期函数--监听页面加载

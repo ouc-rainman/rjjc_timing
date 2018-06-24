@@ -148,6 +148,11 @@ text-align: center;
   border-bottom: 1px solid #444;
   margin-top: 10rpx;
 }
+.plan_bg1{
+border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  margin-top: 10rpx;
+}
 .plan_text{
   display: inline-block;
   font-size: 28rpx;

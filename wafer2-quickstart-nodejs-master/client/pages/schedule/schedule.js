@@ -5,8 +5,8 @@ var config = require('../../config')
 var convertTime = require("../../functionjs/convertTime.js")
 var calcuDiff = require("../../functionjs/calcuDiff.js")
 var merge_bed_study = require('../../functionjs/merge_bed_study.js')
-var time1, time2, time3
-var today, yesterday, before
+//var time1, time2, time3
+//var today, yesterday, before
 Page({
 
   /**
@@ -19,11 +19,22 @@ Page({
     ahour: 1,
     days: [{ day: "周日" }, { day: "周一" }, { day: "周二" }, { day: "周三" }, { day: "周四" }, { day: "周五" }, { day: "周六" }
     ],
+    today:'',
+    yesterday:'',
+    before:'',
     arrayTest: {},
-    wakeUp: {},
-    sleep: {},
     bedTime: {},
-    sum: true
+    arrayTestY:{},
+    bedTimeY:{},
+    arrayTestB:{},
+    bedTimeB:{},
+    sum: true,
+    time:'',
+    timeY:'',
+    timeB:'',
+    time1:'',
+    time2:'',
+    time3:'',
   },
 
   /**
@@ -221,7 +232,8 @@ Page({
       },
       success: res => {
         temp = res.data.data
-
+        console.log("合并");
+        console.log(merge_bed_study.merge_bed_study(temp).reverse())
         this.setData({
           arrayTest: temp.Study,
           bedTime: temp.BedTime
@@ -260,7 +272,152 @@ Page({
     return temp
   },
 
+  //得到 昨天 学习和睡眠时间
+  GetYesterday: function () {
+    var temp
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    var n = timestamp * 1000;
+    var date = new Date(n);
+    //年  
+    var Y = date.getFullYear();
+    //月  
+    var M = date.getMonth();
+    //日  
+    var D = date.getDate();
+    //时  
+    var h = date.getHours();
+    //分  
+    var m = date.getMinutes();
+    //秒  
+    var s = date.getSeconds();
+    //今天的开始时间
+    var ee = timestamp - s - m * 60 - h * 60 * 60
+    var ss = ee - 24 * 60 * 60
+    console.log(ee)
+    console.log(util.formatStampTime(ss,'Y/M/D'))
+    // console.log(timestamp,ss,ee)
+    wx.request({
+      url: config.service.GetTodayUrl,
+      method: 'post',
+      //这里定义传递的参数
+      data: {
+        userInfo: app.globalData.userInfo,
+        TodayStart: ss,
+        TodayEnd: ee
+      },
+      success: res => {
+        temp = res.data.data
 
+        this.setData({
+          arrayTestY: temp.Study,
+          bedTimeY: temp.BedTime
+        })
+        console.log(this.data.arrayTestY)
+        console.log(this.data.bedTimeY)
+        console.log("昨天学习")
+        console.log(temp)
+        console.log(temp.Study.length)
+
+
+        var i
+        var j
+        for (j = 0; j < temp.BedTime.length; j++) {
+          var a = "bedTimeY[" + j + "].timestamp"
+          this.setData({
+            [a]: util.formatStampTime(this.data.bedTimeY[j].timestamp, 'h:m:s')
+          })
+
+        }
+        console.log(this.data.bedTimeY)
+        for (i = 0; i < temp.Study.length; i++) {
+          var a = "arrayTestY[" + i + "].OpenId"
+          var b = "arrayTestY[" + i + "].StartTime"
+          var c = "arrayTestY[" + i + "].EndTime"
+          this.setData({
+            [a]: calcuDiff.calcuDiff(this.data.arrayTestY[i].StartTime, this.data.arrayTestY[i].EndTime),
+            [b]: util.formatStampTime(this.data.arrayTestY[i].StartTime, 'h:m:s'),
+            [c]: util.formatStampTime(this.data.arrayTestY[i].EndTime, 'h:m:s')
+          })
+
+        }
+        console.log(this.data.arrayTestY)
+      }
+    })
+    return ss
+  },
+  //得到 前天 学习和睡眠时间
+  GetTwoDaysAgo: function () {
+    var temp
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    var n = timestamp * 1000;
+    var date = new Date(n);
+    //年  
+    var Y = date.getFullYear();
+    //月  
+    var M = date.getMonth();
+    //日  
+    var D = date.getDate();
+    //时  
+    var h = date.getHours();
+    //分  
+    var m = date.getMinutes();
+    //秒  
+    var s = date.getSeconds();
+    //今天的开始时间
+    var ee = timestamp - s - m * 60 - h * 60 * 60 - 24 * 60 * 60
+    var ss = ee - 24 * 60 * 60
+    // console.log(timestamp,ss,ee)
+    wx.request({
+      url: config.service.GetTodayUrl,
+      method: 'post',
+      //这里定义传递的参数
+      data: {
+        userInfo: app.globalData.userInfo,
+        TodayStart: ss,
+        TodayEnd: ee
+      },
+      success: res => {
+        temp = res.data.data
+
+        this.setData({
+          arrayTestB: temp.Study,
+          bedTimeB: temp.BedTime
+        })
+        console.log(this.data.arrayTestB)
+        console.log(this.data.bedTimeB)
+        console.log("前天学习")
+        console.log(temp)
+        console.log(temp.Study.length)
+
+
+        var i
+        var j
+        for (j = 0; j < temp.BedTime.length; j++) {
+          var a = "bedTimeB[" + j + "].timestamp"
+          this.setData({
+            [a]: util.formatStampTime(this.data.bedTimeB[j].timestamp, 'h:m:s')
+          })
+
+        }
+        console.log(this.data.bedTimeB)
+        for (i = 0; i < temp.Study.length; i++) {
+          var a = "arrayTestB[" + i + "].OpenId"
+          var b = "arrayTestB[" + i + "].StartTime"
+          var c = "arrayTestB[" + i + "].EndTime"
+          this.setData({
+            [a]: calcuDiff.calcuDiff(this.data.arrayTestB[i].StartTime, this.data.arrayTestB[i].EndTime),
+            [b]: util.formatStampTime(this.data.arrayTestB[i].StartTime, 'h:m:s'),
+            [c]: util.formatStampTime(this.data.arrayTestB[i].EndTime, 'h:m:s')
+          })
+
+        }
+        console.log(this.data.arrayTestB)
+      }
+    })
+    return ss
+  },
   //得到这个人的所有时间的学习和睡眠时间
   GetHistory: function () {
 
@@ -294,6 +451,11 @@ Page({
     var that = this
     this.CheckWatch();
     this.GetToday();
+    var y=this.GetYesterday();
+    var b=this.GetTwoDaysAgo();
+    this.CalculateTotalDay(),
+      this.CalculateTotalTime(),
+      this.CalculateAverage(),
     // this.GetHistory();
     // var today=app.globalData.summary
     console.log(that.data.arrayTest)
@@ -309,7 +471,6 @@ Page({
         })
         today = "今天还没有学习记录"
       }
-
     }
     console.log(this.data.sum)
     console.log(today)
@@ -321,19 +482,25 @@ Page({
     //var time = util.ChangeTimeToText(new Date());
     console.log(new Date())
     var time = util.formatTime(new Date()).substring(0, 10);
+    var timeY = util.formatStampTime(y,'Y/M/D')
+    var timeB=util.formatStampTime(b,'Y/M/D')
     var date = new Date();
-    console.log(date.getDay())
+    console.log((-1+7)%7)
+    console.log((date.getDay()-1+7)%7)
     console.log(this.data.days[date.getDay()].day)
-    this.CalculateTotalDay(),
-      this.CalculateTotalTime(),
-      this.CalculateAverage(),
       this.setData({
         time: time,
+        timeY:timeY,
+        timeB:timeB,
         time1: this.data.days[date.getDay()].day,
-        //time2: this.data.days[(date.getDay()-1)%7].day,
-        //time3: this.data.days[(date.getDay()-2)%7].day,
       })
-
+      this.setData({
+        time2: this.data.days[(date.getDay()-1+7)%7].day,
+        time3: this.data.days[(date.getDay()-2+7)%7].day,
+      })
+      console.log(this.data.time1)
+      console.log(this.data.time2)
+      console.log(this.data.time3)
   },
 
   /**
