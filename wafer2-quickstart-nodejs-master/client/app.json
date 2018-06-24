@@ -41,19 +41,13 @@
     "selectedColor": "#1296db",
     "list": [
       {
-        "pagePath": "message/message/message",
-        "text": "消息",
-        "iconPath": "images/message.png",
-        "selectedIconPath": "images/message2.png"
-      },
-      {
-        "pagePath": "schedule/schedule/schedule",
+        "pagePath": "pages/schedule/schedule",
         "text": "学习日程",
         "iconPath": "images/study_line.png",
         "selectedIconPath": "images/study_line2.png"
       },
       {
-        "pagePath": "circle/circle/circle",
+        "pagePath": "pages/circle/circle",
         "text": "学习圈",
         "iconPath": "images/circle.png",
         "selectedIconPath": "images/circle2.png"
