@@ -49,35 +49,37 @@
         <view class="plan_text2">{{time}}</view>
       </view>
 
-      <view wx:if="{{bedTime.length==0 && arrayTest.length==0}}" class="content1">{{today}}</view>
+      <view wx:if="{{merge.length==0}}" class="content1">{{today}}</view>
       <view wx:else>
-        <block wx:for="{{bedTime}}" wx:key="key">
+        <block wx:for="{{merge}}" wx:key="key">
           <view class='plan_list_item' wx:if="{{item.type==1}}">
-            <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            <text decode="{{true}}" class='plan_title'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起床打卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
-          <view class='plan_list_item' wx:if="{{item.type==2}}">
-            <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+          <view class='plan_list_item' wx:elif="{{item.type==2}}">
+            <text decode="{{true}}" class='plan_title'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;睡觉打卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+          </view>
+          <view wx:else>
+            <view class='plan_list_item'>
+              <view class='plan_title_bg'>
+                <view class='plan_title'>学习内容</view>
+                <view class='plan_title' id='plan_title_center'>学习时长</view>
+                <view class='plan_title'>具体时间</view>
+              </view>
+              <view class='plan_content_bg'>
+                <view class="plan_list_item_block">{{item.Summary}}</view>
+                <view class="plan_list_item_block" id='last_time'>
+                  <text decode="{{true}}">{{item.OpenId}}</text>
+                </view>
+                <view class="plan_list_item_block">
+                  <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
+                  <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+                </view>
+              </view>
+            </view>
+
           </view>
         </block>
-        <block wx:for="{{arrayTest}}" wx:key="key">
-          <view class='plan_list_item'>
-            <view class='plan_title_bg'>
-              <view class='plan_title'>学习内容</view>
-              <view class='plan_title' id='plan_title_center'>学习时长</view>
-              <view class='plan_title'>具体时间</view>
-            </view>
-            <view class='plan_content_bg'>
-              <view class="plan_list_item_block">{{item.Summary}}</view>
-              <view class="plan_list_item_block" id='last_time'>
-                <text decode="{{true}}">{{item.OpenId}}</text>
-              </view>
-              <view class="plan_list_item_block">
-                <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
-                <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
-              </view>
-            </view>
-          </view>
-        </block>
+
       </view>
 
 
@@ -92,35 +94,37 @@
         <view class="plan_text2">{{timeY}}</view>
       </view>
 
-      <view wx:if="{{bedTimeY.length==0 && arrayTestY.length==0}}" class="content1">{{yesterday}}</view>
+      <view wx:if="{{mergeY.length==0}}" class="content1">{{today}}</view>
       <view wx:else>
-        <block wx:for="{{bedTimeY}}" wx:key="key">
+        <block wx:for="{{mergeY}}" wx:key="key">
           <view class='plan_list_item' wx:if="{{item.type==1}}">
             <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
-          <view class='plan_list_item' wx:if="{{item.type==2}}">
+          <view class='plan_list_item' wx:elif="{{item.type==2}}">
             <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
-        </block>
-        <block wx:for="{{arrayTestY}}" wx:key="key">
-          <view class='plan_list_item'>
-            <view class='plan_title_bg'>
-              <view class='plan_title'>学习内容</view>
-              <view class='plan_title' id='plan_title_center'>学习时长</view>
-              <view class='plan_title'>具体时间</view>
-            </view>
-            <view class='plan_content_bg'>
-              <view class="plan_list_item_block">{{item.Summary}}</view>
-              <view class="plan_list_item_block" id='last_time'>
-                <text decode="{{true}}">{{item.OpenId}}</text>
+          <view wx:else>
+            <view class='plan_list_item'>
+              <view class='plan_title_bg'>
+                <view class='plan_title'>学习内容</view>
+                <view class='plan_title' id='plan_title_center'>学习时长</view>
+                <view class='plan_title'>具体时间</view>
               </view>
-              <view class="plan_list_item_block">
-                <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
-                <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+              <view class='plan_content_bg'>
+                <view class="plan_list_item_block">{{item.Summary}}</view>
+                <view class="plan_list_item_block" id='last_time'>
+                  <text decode="{{true}}">{{item.OpenId}}</text>
+                </view>
+                <view class="plan_list_item_block">
+                  <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
+                  <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+                </view>
               </view>
             </view>
+
           </view>
         </block>
+
       </view>
 
 
@@ -134,35 +138,37 @@
         <view class="plan_text2">{{timeB}}</view>
       </view>
 
-      <view wx:if="{{bedTimeB.length==0 && arrayTestB.length==0}}" class="content1">{{before}}</view>
+    <view wx:if="{{mergeB.length==0}}" class="content1">{{today}}</view>
       <view wx:else>
-        <block wx:for="{{bedTimeB}}" wx:key="key">
+        <block wx:for="{{mergeB}}" wx:key="key">
           <view class='plan_list_item' wx:if="{{item.type==1}}">
             <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
-          <view class='plan_list_item' wx:if="{{item.type==2}}">
+          <view class='plan_list_item' wx:elif="{{item.type==2}}">
             <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
-        </block>
-        <block wx:for="{{arrayTestB}}" wx:key="key">
-          <view class='plan_list_item'>
-            <view class='plan_title_bg'>
-              <view class='plan_title'>学习内容</view>
-              <view class='plan_title' id='plan_title_center'>学习时长</view>
-              <view class='plan_title'>具体时间</view>
-            </view>
-            <view class='plan_content_bg'>
-              <view class="plan_list_item_block">{{item.Summary}}</view>
-              <view class="plan_list_item_block" id='last_time'>
-                <text decode="{{true}}">{{item.OpenId}}</text>
+          <view wx:else>
+            <view class='plan_list_item'>
+              <view class='plan_title_bg'>
+                <view class='plan_title'>学习内容</view>
+                <view class='plan_title' id='plan_title_center'>学习时长</view>
+                <view class='plan_title'>具体时间</view>
               </view>
-              <view class="plan_list_item_block">
-                <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
-                <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+              <view class='plan_content_bg'>
+                <view class="plan_list_item_block">{{item.Summary}}</view>
+                <view class="plan_list_item_block" id='last_time'>
+                  <text decode="{{true}}">{{item.OpenId}}</text>
+                </view>
+                <view class="plan_list_item_block">
+                  <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
+                  <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+                </view>
               </view>
             </view>
+
           </view>
         </block>
+
       </view>
 
 

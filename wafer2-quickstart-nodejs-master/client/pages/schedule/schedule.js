@@ -35,6 +35,9 @@ Page({
     time1:'',
     time2:'',
     time3:'',
+    merge:'',
+    mergeY:'',
+    mergeB:''
   },
 
   /**
@@ -232,12 +235,47 @@ Page({
       },
       success: res => {
         temp = res.data.data
-        console.log("合并");
-        console.log(merge_bed_study.merge_bed_study(temp).reverse())
+        //console.log("合并");
+        //console.log(merge_bed_study.merge_bed_study(temp).reverse())
+
         this.setData({
           arrayTest: temp.Study,
-          bedTime: temp.BedTime
+          bedTime: temp.BedTime,
+          merge: merge_bed_study.merge_bed_study(temp).reverse()
         })
+        
+        var k
+        for(k=0;k<this.data.merge.length;k++)
+        {
+          if (this.data.merge[k].type == 1 || this.data.merge[k].type ==2)
+          {
+            console.log("hebing")
+            var a = "merge[" + k + "].timestamp"
+            this.setData({
+              [a]: util.formatStampTime(this.data.merge[k].timestamp, 'h:m:s')
+            })
+          }
+          else
+          {
+            var a = "merge[" + k + "].OpenId"
+            var b = "merge[" + k + "].StartTime"
+            var c = "merge[" + k + "].EndTime"
+            this.setData({
+              [a]: calcuDiff.calcuDiff(this.data.merge[k].StartTime, this.data.merge[k].EndTime),
+              [b]: util.formatStampTime(this.data.merge[k].StartTime, 'h:m:s'),
+              [c]: util.formatStampTime(this.data.merge[k].EndTime, 'h:m:s')
+            })
+          }
+        }
+        for (k = 0; k < this.data.merge.length; k++)
+        {
+          console.log(this.data.merge[k].type)
+          if (this.data.merge[k].type==undefined)
+          console.log("bucunz")
+        }
+        console.log("合并");
+        console.log(this.data.merge)
+        console.log(this.data.merge.length)
         console.log(this.data.arrayTest)
         console.log(this.data.bedTime)
         console.log("今日学习")
@@ -311,8 +349,37 @@ Page({
 
         this.setData({
           arrayTestY: temp.Study,
-          bedTimeY: temp.BedTime
+          bedTimeY: temp.BedTime,
+          mergeY: merge_bed_study.merge_bed_study(temp).reverse()
         })
+
+        var k
+        for (k = 0; k < this.data.mergeY.length; k++) {
+          if (this.data.mergeY[k].type == 1 || this.data.mergeY[k].type == 2) {
+            console.log("hebing")
+            var a = "mergeY[" + k + "].timestamp"
+            this.setData({
+              [a]: util.formatStampTime(this.data.mergeY[k].timestamp, 'h:m:s')
+            })
+          }
+          else {
+            var a = "mergeY[" + k + "].OpenId"
+            var b = "mergeY[" + k + "].StartTime"
+            var c = "mergeY[" + k + "].EndTime"
+            this.setData({
+              [a]: calcuDiff.calcuDiff(this.data.mergeY[k].StartTime, this.data.mergeY[k].EndTime),
+              [b]: util.formatStampTime(this.data.mergeY[k].StartTime, 'h:m:s'),
+              [c]: util.formatStampTime(this.data.mergeY[k].EndTime, 'h:m:s')
+            })
+          }
+        }
+        for (k = 0; k < this.data.mergeY.length; k++) {
+          console.log(this.data.mergeY[k].type)
+          if (this.data.mergeY[k].type == undefined)
+            console.log("bucunz")
+        }
+        console.log("合并");
+        console.log(this.data.mergeY)
         console.log(this.data.arrayTestY)
         console.log(this.data.bedTimeY)
         console.log("昨天学习")
@@ -383,8 +450,37 @@ Page({
 
         this.setData({
           arrayTestB: temp.Study,
-          bedTimeB: temp.BedTime
+          bedTimeB: temp.BedTime,
+          mergeB: merge_bed_study.merge_bed_study(temp).reverse()
         })
+        var k
+        for (k = 0; k < this.data.mergeB.length; k++) {
+          if (this.data.mergeB[k].type == 1 || this.data.mergeB[k].type == 2) {
+            console.log("hebing")
+            var a = "mergeB[" + k + "].timestamp"
+            this.setData({
+              [a]: util.formatStampTime(this.data.mergeB[k].timestamp, 'h:m:s')
+            })
+          }
+          else {
+            var a = "mergeB[" + k + "].OpenId"
+            var b = "mergeB[" + k + "].StartTime"
+            var c = "mergeB[" + k + "].EndTime"
+            this.setData({
+              [a]: calcuDiff.calcuDiff(this.data.mergeB[k].StartTime, this.data.mergeB[k].EndTime),
+              [b]: util.formatStampTime(this.data.mergeB[k].StartTime, 'h:m:s'),
+              [c]: util.formatStampTime(this.data.mergeB[k].EndTime, 'h:m:s')
+            })
+          }
+        }
+        for (k = 0; k < this.data.mergeB.length; k++) {
+          console.log(this.data.mergeB[k].type)
+          if (this.data.mergeB[k].type == undefined)
+            console.log("bucunz")
+        }
+        console.log("合并");
+        console.log(this.data.mergeB)
+        
         console.log(this.data.arrayTestB)
         console.log(this.data.bedTimeB)
         console.log("前天学习")
@@ -460,22 +556,11 @@ Page({
     // var today=app.globalData.summary
     console.log(that.data.arrayTest)
     console.log(that.data.bedTime)
-    if (!this.data.arrayTes) {
-      console.log("mmm")
-      console.log(that.data.arrayTest)
-      if (!this.data.bedTime) {
-        console.log("hhhh")
-        console.log(that.data.bedTime)
-        this.setData({
-          sum: false
-        })
-        today = "今天还没有学习记录"
-      }
-    }
+
     console.log(this.data.sum)
     console.log(today)
     this.setData({
-      today: today,
+      today: "你还没有学习记录",
       yesterday: "昨天还没有记录",
       before: "前天还没有记录",
     })
