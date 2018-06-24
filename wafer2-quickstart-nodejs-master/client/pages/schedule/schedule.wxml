@@ -1,82 +1,91 @@
 <!--pages/schedule/schedule.wxml-->
-<view id="panel" class="flex-column">
-  <view class="flex-cell flex-row">
-    <text class="flex-cell flex-row">学习天数</text>
-    <text class="flex-cell flex-row">学习时长</text>
-    <text class="flex-cell flex-row">日均学习时长</text>
+  <view id="panel" class="flex-column">
+    <view class="flex-cell flex-row">
+      <text class="flex-cell flex-row">学习天数</text>
+      <text class="flex-cell flex-row">学习时长</text>
+      <text class="flex-cell flex-row">日均学习时长</text>
+    </view>
+    <view class="flex-row flex-cell">
+      <text class="flex-cell flex-row">{{day}}天</text>
+      <text class="flex-cell flex-row">{{hour}}小时</text>
+      <text class="flex-cell flex-row">{{ahour}}小时</text>
+    </view>
   </view>
-  <view class="flex-row flex-cell">
-    <text class="flex-cell flex-row">{{day}}天</text>
-    <text class="flex-cell flex-row">{{hour}}小时</text>
-    <text class="flex-cell flex-row">{{ahour}}小时</text>
-  </view>
-</view>
 
-<view class="item">
-  <view class="item_left" class="top_image" bindtap="showT">
-    <image src="../../images/bed.png" class="image"></image>
-    <view>
-      <text class="text">起床/睡觉打卡</text>
+  <view class="item">
+    <view class="item_item" class="top_image" bindtap="showT">
+      <image src="../../images/bed_icon.png" class="image"></image>
+      <view>
+        <text class="text">起床/睡觉打卡</text>
+      </view>
     </view>
-  </view>
-  <view class="item_middle" class="top_image">
-    <image src="../../images/upBed.png" class="image" wx:if="{{studyStatus}}" bindtap="goToStatus"></image>
-    <image src="../../images/upBed.png" class="image" wx:else bindtap="goToPlan"></image>
-    <view>
-      <text class="text" bindtap='StartWatch'>开始学习</text>
+    <view class="item_item" class="top_image">
+      <image src="../../images/start_icon.png" class="image" wx:if="{{studyStatus}}" bindtap="goToStatus"></image>
+      <image src="../../images/start_icon.png" class="image" wx:else bindtap="goToPlan"></image>
+      <view>
+        <text class="text" bindtap='StartWatch'>开始学习</text>
+      </view>
     </view>
-  </view>
-  <view class="item_right" class="top_image" bindtap="goToStudyRecord">
-    <image src="../../images/pen.png" class="image" />
-    <view>
-      <text class="text">学习日记</text>
+    <view class="item_item" class="top_image" bindtap="goToStudyRecord">
+      <image src="../../images/record_icon.png" class="image" />
+      <view>
+        <text class="text">学习日记</text>
+      </view>
     </view>
+    
   </view>
-  <view class="item_right" class="top_image" bindtap="isShowToast">
-    <image src="../../images/remind.png" class="image" />
-    <view>
-      <text class="text">学习计划提醒</text>
-    </view>
-  </view>
-</view>
 
-
-<view class="weui-search-bar__form">
   <view class='father'>
     <text>我的学习</text>
   </view>
 
-</view>
+  <view>
+ 
+    <view class='plan_bg'>
+      <view class='plan_item'>
+        <view class='plan_data'>
+          <view class="plan_text" id='plan_day'>今天</view>
+          <view class="plan_text2" id='plan_week'>{{time1}}</view>
+          <view class="plan_text2">{{time}}</view>
+        </view>
 
-<view>
-  <view style="display:flex;">
-    <view class="text1" style="flex:1;">{{time1}}</view>
-    <view class="x" style="flex:1;">{{time}}</view>
-  </view>
-
-  <view class="text2">今天</view>
-
-  <view wx:if="{{bedTime.length==0}}" class="content1">{{today}}</view>
-  <view wx:else>
-    <block wx:for="{{bedTime}}" wx:key="key">
-      <view wx:if="{{item.type==1}}">
-        <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+        <view wx:if="{{bedTime.length==0 && arrayTest.length==0}}" class="content1">{{today}}</view>
+        <view wx:else>
+          <block wx:for="{{bedTime}}" wx:key="key">
+            <view class='plan_list_item' wx:if="{{item.type==1}}">
+              <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            </view>
+            <view class='plan_list_item' wx:if="{{item.type==2}}">
+              <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            </view>
+          </block>
+          <block wx:for="{{arrayTest}}" wx:key="key">
+            <view class='plan_list_item'>
+              <view class='plan_title_bg'>
+                <view class='plan_title'>学习内容</view>
+                <view class='plan_title' id='plan_title_center'>学习时长</view>
+                <view class='plan_title'>具体时间</view>
+              </view>
+              <view class='plan_content_bg'>
+                <view class="plan_list_item_block">{{item.Summary}}</view>
+                <view class="plan_list_item_block" id='last_time'>
+                  <text decode="{{true}}">{{item.OpenId}}</text>
+                </view>
+                <view class="plan_list_item_block">
+                  <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
+                  <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+                </view> 
+              </view>
+            </view>
+          </block>
+        </view>
+      
       </view>
-      <view wx:if="{{item.type==2}}">
-        <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
-      </view>
-    </block>
-    <block wx:for="{{arrayTest}}" wx:key="key">
-      <view class="content1">{{item.Summary}}</view>
-      <text class="content2" decode="{{true}}">开始时间&nbsp;&nbsp;&nbsp;{{item.StartTime}}</text>
-      <text class="content2" decode="{{true}}">\n结束时间&nbsp;&nbsp;&nbsp;{{item.EndTime}}</text>
-      <text class="content2" decode="{{true}}">\n学习时长&nbsp;&nbsp;&nbsp;{{item.OpenId}}</text>
-    </block>
-  </view>
+    </view>
 
-  <view class="text3">昨天</view>
-  <view class="content1">{{yesterday}}</view>
-  <view class="text5">前天</view>
-  <view class="content1">{{before}}</view>
-  <view> </view>
-</view>
+    <view class="text3">昨天</view>
+    <view class="content1">{{yesterday}}</view>
+    <view class="text5">前天</view>
+    <view class="content1">{{before}}</view>
+    <view> </view>
+  </view>

@@ -18,6 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  margin-top: 20rpx;
 }
 
 .flex-cell {
@@ -25,7 +26,13 @@
 }
 
 .top_image {
-  display: table-column;
+  text-align: center;
+  width: 30%;
+  margin: 10rpx;
+  padding: 20rpx 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #eee,
+    0 1px 2px 1px #efefef;
 }
 
 .item {
@@ -33,10 +40,10 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 1rpx;
-  margin-left: 60rpx;
+  margin-left: 20rpx;
   margin-bottom: 13rpx;
   margin-top: 13rpx;
-  margin-right: 72rpx;
+  margin-right: 20rpx;
   background-color: #fff;
 }
 
@@ -63,7 +70,7 @@
   font-family: "微软雅黑";
   font-weight: bold;
   line-height: 1rpx;
-  font-size: 22rpx;
+  font-size: 24rpx;
   padding-left: 1rpx;
 }
 
@@ -77,10 +84,8 @@
 }
 
 .image {
-  width:66rpx;
-  height: 66rpx;
-  border-radius: 50rpx;
-  background-color: #eee;
+  width:50rpx;
+  height: 50rpx;
 }
 .flex-rowim{
   display: flex;
@@ -103,6 +108,9 @@
 width:100%;
 height: 100%;
 display: flex;
+margin-top: 30rpx;
+font-size: 32rpx;
+font-weight: bold;
 justify-content: center;
 text-align: center;
 }
@@ -131,4 +139,64 @@ text-align: center;
 .content2{
   line-height: 100rpx;
   text-align: left;
+}
+.plan_item{
+  margin: 10rpx 40rpx;
+}
+.plan_bg{
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  margin-top: 10rpx;
+}
+.plan_text{
+  display: inline-block;
+  font-size: 28rpx;
+}
+.plan_text2{
+  position: relative;
+  font-size: 28rpx;
+  top: 6rpx;
+  float: right;
+}
+#plan_day{
+  font-weight: bold;
+  vertical-align: text-top;
+}
+.plan_list_item{
+  border-top: 1px solid #444;
+  margin: 20rpx 0;
+}
+#plan_week{
+  margin-left: 20rpx;
+}
+.content1{
+  font-size: 28rpx;
+}
+.plan_list_item_block{
+  width: 30%;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24rpx;
+}
+.plan_title{
+  font-size: 24rpx;
+  font-weight: bold;
+  display: inline-block;
+}
+.plan_title_bg{
+  text-align: center;
+}
+#plan_title_center{
+  margin: 0 120rpx;
+}
+.plan_content_bg{
+  padding: 0 10rpx;
+  text-align: center;
+}
+.time_show{
+  display: block;
+  width: 100%;
+}
+#last_time{
+  margin: 0 30rpx;
 }

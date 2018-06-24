@@ -266,8 +266,8 @@ Page({
           var c = "arrayTest[" + i + "].EndTime"
           this.setData({
             [a]: calcuDiff.calcuDiff(this.data.arrayTest[i].StartTime, this.data.arrayTest[i].EndTime),
-            [b]: util.formatStampTime(this.data.arrayTest[i].StartTime, 'Y/M/D h:m:s'),
-            [c]: util.formatStampTime(this.data.arrayTest[i].EndTime, 'Y/M/D h:m:s')
+            [b]: util.formatStampTime(this.data.arrayTest[i].StartTime, 'h:m:s'),
+            [c]: util.formatStampTime(this.data.arrayTest[i].EndTime, 'h:m:s')
           })
 
         }
@@ -308,7 +308,7 @@ Page({
    */
   onShow: function () {
     //var sum=true
-    var today = 'hhh'
+    var today = '你还没有学习记录'
     var that = this
     this.CheckWatch();
     this.GetToday();
