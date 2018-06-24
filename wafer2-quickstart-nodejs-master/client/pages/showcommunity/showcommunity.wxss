@@ -61,3 +61,54 @@ page {
   width: 20%;
   height: 120rpx;
 }
+.pose_new{
+  height: 100rpx;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eee,
+    0 1px 2px 1px #efefef;
+}
+.pose_title{
+  width: 60%;
+  margin: 20rpx auto;
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.pose_add{
+  position: relative;
+  top: -84rpx;
+  float: right;
+  font-size: 50rpx;
+  font-weight: bold;
+  right: 30rpx;
+}
+.circle_item{
+  background: #fff;
+  margin: 20rpx 20rpx;
+  box-shadow: 0 0 0 1px #eee,
+    0 1px 2px 1px #efefef;
+  border-radius: 8rpx;
+}
+.Avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 0 0 1px #eee,
+    0 1px 2px 1px #efefef;
+  display: inline-block;
+  margin: 10rpx;
+
+}
+.item_info{
+  display: inline-block;
+}
+#item_nickname{
+  margin-bottom: 30rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+#item_time{
+  margin-bottom: 30rpx;
+  font-size: 24rpx;
+  color: #444
+}

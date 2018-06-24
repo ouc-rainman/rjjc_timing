@@ -1,13 +1,17 @@
 <!--pages/showcommunity/showcommunity.wxml-->
-<navigator url="../community/community" hover-class="navigator-hover">发表新动态</navigator>
-<view wx:for='{{MomentText}}' wx:for-item='text'>
+<view class='pose_new'>
+  <view class='pose_title'>学习圈</view>
+  <navigator class='pose_add' url="../community/community" hover-class="navigator-hover">+</navigator>
+</view>
+<view class='circle_item' wx:for='{{MomentText}}' wx:for-item='text'>
   <image
     class="Avatar" 
     src="{{text['AvatarUrl']}}"
     mode="aspectFit"
     bindtap="previewImg"
   ></image>
-  <text>{{text.NickName}}       {{text.momentTime}}\n</text>
+  <text class='item_info' id='item_nickname'>{{text.NickName}}</text>
+  <text class='item_info' id='item_time'>{{text.momentTime}}</text>
   
   <!-- openId: {{text.openId}} -->
   <text>\n</text>

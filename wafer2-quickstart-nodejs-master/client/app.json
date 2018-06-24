@@ -20,12 +20,12 @@
   "window":{
     "backgroundColor":"#ffffff",
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#1f3c67",
     "navigationBarTitleText": "Timing",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white"
   },
   "tabBar": {
-    "selectedColor": "#fc4926",
+    "selectedColor": "#1f3c67",
     "list": [
       {
         "pagePath": "pages/schedule/schedule",
