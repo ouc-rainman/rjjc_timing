@@ -56,7 +56,7 @@
 
   <view class="text2">今天</view>
 
-  <view wx:if="{{bedTime.length==0}}" class="content1">{{today}}</view>
+  <view wx:if="{{bedTime.length==0&&arrayTest.length==0}}" class="content1">{{today}}</view>
   <view wx:else>
     <block wx:for="{{bedTime}}" wx:key="key">
       <view wx:if="{{item.type==1}}">

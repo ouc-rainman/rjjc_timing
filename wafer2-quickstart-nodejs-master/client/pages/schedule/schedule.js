@@ -4,6 +4,7 @@ const util = require('../../utils/util.js')
 var config = require('../../config')
 var convertTime = require("../../functionjs/convertTime.js")
 var calcuDiff = require("../../functionjs/calcuDiff.js")
+var merge_bed_study = require('../../functionjs/merge_bed_study.js')
 var time1, time2, time3
 var today, yesterday, before
 Page({
@@ -109,22 +110,6 @@ Page({
         this.setData({
           ahour: temp
         })
-      }
-    })
-  },
-
-  // 停止学习
-  StopWatch: function () {
-    wx.request({
-      url: config.service.StopWatchUrl,
-      method: 'post',
-      //这里定义传递的参数
-      data: {
-        userInfo: app.globalData.userInfo
-      },
-      success: res => {
-
-        console.log(res)
       }
     })
   },
@@ -250,12 +235,10 @@ Page({
 
         var i
         var j
-        var m = 0
-        var n = 0;
         for (j = 0; j < temp.BedTime.length; j++) {
           var a = "bedTime[" + j + "].timestamp"
           this.setData({
-            [a]: util.formatStampTime(this.data.bedTime[j].timestamp, 'Y/M/D h:m:s')
+            [a]: util.formatStampTime(this.data.bedTime[j].timestamp, 'h:m:s')
           })
 
         }
@@ -266,13 +249,12 @@ Page({
           var c = "arrayTest[" + i + "].EndTime"
           this.setData({
             [a]: calcuDiff.calcuDiff(this.data.arrayTest[i].StartTime, this.data.arrayTest[i].EndTime),
-            [b]: util.formatStampTime(this.data.arrayTest[i].StartTime, 'Y/M/D h:m:s'),
-            [c]: util.formatStampTime(this.data.arrayTest[i].EndTime, 'Y/M/D h:m:s')
+            [b]: util.formatStampTime(this.data.arrayTest[i].StartTime, 'h:m:s'),
+            [c]: util.formatStampTime(this.data.arrayTest[i].EndTime, 'h:m:s')
           })
 
         }
         console.log(this.data.arrayTest)
-
       }
     })
     return temp

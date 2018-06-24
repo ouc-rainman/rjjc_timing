@@ -106,14 +106,16 @@ Page({
                 }
             })
         }
-        setTimeout(function () {
+        var that =this
+        that.RegistionTest()
+        /*setTimeout(function () {
           wx.redirectTo({
             url: '../sign/sign',
           })
         }, 5000
-        )
+        )*/
     },
-
+  
     // 切换是否带有登录态
     switchRequestMode: function (e) {
         this.setData({
@@ -304,10 +306,10 @@ RegistionTest: function() {
     }
   })
   setTimeout(function () {
-    wx.redirectTo({
-      url: '../login/login',
+    wx.switchTab({
+      url: '../schedule/schedule',
     })
-  }, 1000
+  }, 5000
   )
 },
 

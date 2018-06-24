@@ -12,8 +12,8 @@
     "pages/record/record",
     "pages/history/history",
     "pages/phone/phone",
-    
-   
+    "pages/community/community",
+    "pages/showcommunity/showcommunity",
     "pages/addCgi/addCgi",
     "pages/mysqltest/mysqltest"
   ],
@@ -34,7 +34,7 @@
         "selectedIconPath": "images/daily_icon2.png"
       },
       {
-        "pagePath": "pages/circle/circle",
+        "pagePath": "pages/showcommunity/showcommunity",
         "text": "学习圈",
         "iconPath": "images/circle_icon.png",
         "selectedIconPath": "images/circle_icon2.png"

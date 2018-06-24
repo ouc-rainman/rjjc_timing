@@ -1,7 +1,7 @@
 <!--pages/studyRecord/studyRecord.wxml-->
 
-<view class='container'>
-  <view wx:if="{{sum}}" class="content1">{{today}}</view>
+<view>
+  <view wx:if="{{arrayTest.length==0}}" class="content1">{{today}}</view>
   <view wx:else>
     <block wx:for="{{arrayTest}}" wx:key="key">
       <view class="content1">{{item.Summary}}</view>

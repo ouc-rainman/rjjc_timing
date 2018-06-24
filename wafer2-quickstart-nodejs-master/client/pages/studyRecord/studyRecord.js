@@ -4,6 +4,8 @@ const util = require('../../utils/util.js')
 var config = require('../../config')
 var convertTime = require("../../functionjs/convertTime.js")
 var calcuDiff = require("../../functionjs/calcuDiff.js")
+var merge_bed_study = require('../../functionjs/merge_bed_study.js')
+
 Page({
 
   /**
@@ -32,13 +34,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var today
-    if (!this.data.arrayTest.length) {
-      this.setData({
-        sum: false
-      })
-      today = "没有学习记录"
-    }
+    var today = "没有学习记录"
+    
     this.setData({
       today: today
     })
@@ -111,12 +108,6 @@ Page({
           })
 
         }
-        /*for(i=0;i<temp.Study.length;i++)
-        {
-          var a = "arrayTest[" + i + "].OpenId"
-          var b = "arrayTest[" + i + "].StartTime"
-          var c = "arrayTest[" + i + "].EndTime" 
-        }*/
       }
     })
   }
