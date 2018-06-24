@@ -290,7 +290,7 @@ Page({
    */
   onShow: function () {
     //var sum=true
-    var today = 'hhh'
+    var today = '你还没有学习记录'
     var that = this
     this.CheckWatch();
     this.GetToday();
