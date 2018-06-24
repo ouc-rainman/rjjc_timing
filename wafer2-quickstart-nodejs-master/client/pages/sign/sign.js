@@ -203,7 +203,7 @@ Page({
     })
     setTimeout(function () {
       wx.switchTab({
-        url: '../../message/message/message',
+        url: '../schedule/schedule',
       })
     }, 800
     )
