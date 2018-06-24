@@ -38,19 +38,19 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "selectedColor": "#1296db",
+    "selectedColor": "#fc4926",
     "list": [
       {
         "pagePath": "pages/schedule/schedule",
         "text": "学习日程",
         "iconPath": "images/daily_icon.png",
-        "selectedIconPath": "images/daily_icon.png"
+        "selectedIconPath": "images/daily_icon2.png"
       },
       {
         "pagePath": "pages/circle/circle",
         "text": "学习圈",
-        "iconPath": "images/circle.png",
-        "selectedIconPath": "images/circle2.png"
+        "iconPath": "images/circle_icon.png",
+        "selectedIconPath": "images/circle_icon2.png"
       }
     ]
   }
