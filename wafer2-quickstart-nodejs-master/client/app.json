@@ -43,8 +43,8 @@
       {
         "pagePath": "pages/schedule/schedule",
         "text": "学习日程",
-        "iconPath": "images/study_line.png",
-        "selectedIconPath": "images/study_line2.png"
+        "iconPath": "images/daily_icon.png",
+        "selectedIconPath": "images/daily_icon.png"
       },
       {
         "pagePath": "pages/circle/circle",
