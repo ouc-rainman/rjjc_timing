@@ -4,9 +4,19 @@
     "pages/index/index",
     "pages/sign/sign",
     "message/message/message",
-
     
-    "pages/logs/logs",
+    "pages/message/message", 
+    "pages/plan/plan",
+    "pages/schedule/schedule",
+    "pages/startStudy/startStudy",
+    "pages/studyRecord/studyRecord",
+    "pages/circle/circle",
+    "pages/info/info",
+    "pages/record/record",
+    "pages/history/history",
+    "pages/phone/phone",
+    
+    
     "schedule/plan/plan",
     "schedule/schedule/schedule",
     "schedule/startStudy/startStudy",
