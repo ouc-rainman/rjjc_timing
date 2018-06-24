@@ -1,4 +1,4 @@
-// pages/startStudy/startStudy.js
+// schedule/startStudy/startStudy.js
 var app = getApp();
 const util = require('../../utils/util.js')
 var config = require('../../config')

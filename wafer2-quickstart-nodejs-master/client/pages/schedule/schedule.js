@@ -1,5 +1,4 @@
 // pages/schedule/schedule.js
-// schedule/schedule/schedule.js
 var app = getApp();
 const util = require('../../utils/util.js')
 var config = require('../../config')
@@ -20,6 +19,9 @@ Page({
     days: [{ day: "周日" }, { day: "周一" }, { day: "周二" }, { day: "周三" }, { day: "周四" }, { day: "周五" }, { day: "周六" }
     ],
     arrayTest: {},
+    wakeUp: {},
+    sleep: {},
+    bedTime: {},
     sum: true
   },
 
@@ -178,7 +180,7 @@ Page({
       success: res => {
         let temp = res.data.data
         console.log(temp)
-
+        this.GetToday()
       }
     })
   },
@@ -196,7 +198,7 @@ Page({
       success: res => {
         let temp = res.data.data
         console.log(temp)
-
+        this.GetToday()
       }
     })
   },
@@ -236,17 +238,28 @@ Page({
         temp = res.data.data
 
         this.setData({
-          arrayTest: temp.Study
+          arrayTest: temp.Study,
+          bedTime: temp.BedTime
         })
         console.log(this.data.arrayTest)
+        console.log(this.data.bedTime)
         console.log("今日学习")
         console.log(temp)
         console.log(temp.Study.length)
 
-        console.log(temp.Study[0].Summary)
-        console.log(convertTime.convertTime(temp.Study[0].StartTime))
-        console.log(convertTime.convertTime(temp.Study[0].EndTime))
+
         var i
+        var j
+        var m = 0
+        var n = 0;
+        for (j = 0; j < temp.BedTime.length; j++) {
+          var a = "bedTime[" + j + "].timestamp"
+          this.setData({
+            [a]: util.formatStampTime(this.data.bedTime[j].timestamp, 'Y/M/D h:m:s')
+          })
+
+        }
+        console.log(this.data.bedTime)
         for (i = 0; i < temp.Study.length; i++) {
           var a = "arrayTest[" + i + "].OpenId"
           var b = "arrayTest[" + i + "].StartTime"
@@ -262,6 +275,7 @@ Page({
 
       }
     })
+    return temp
   },
 
 
@@ -293,14 +307,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var today = app.globalData.summary
+    //var sum=true
+    var today = 'hhh'
+    var that = this
+    this.CheckWatch();
+    this.GetToday();
+    // this.GetHistory();
+    // var today=app.globalData.summary
+    console.log(that.data.arrayTest)
+    console.log(that.data.bedTime)
+    if (!this.data.arrayTes) {
+      console.log("mmm")
+      console.log(that.data.arrayTest)
+      if (!this.data.bedTime) {
+        console.log("hhhh")
+        console.log(that.data.bedTime)
+        this.setData({
+          sum: false
+        })
+        today = "今天还没有学习记录"
+      }
 
-    if (!this.data.arrayTest.length) {
-      this.setData({
-        sum: false
-      })
-      today = "今天还没有学习记录"
     }
+    console.log(this.data.sum)
+    console.log(today)
     this.setData({
       today: today,
       yesterday: "昨天还没有记录",
@@ -321,9 +351,7 @@ Page({
         //time2: this.data.days[(date.getDay()-1)%7].day,
         //time3: this.data.days[(date.getDay()-2)%7].day,
       })
-    this.CheckWatch();
-    this.GetToday();
-    // this.GetHistory();
+
   },
 
   /**
