@@ -72,7 +72,9 @@
                 </view>
                 <view class="plan_list_item_block">
                   <text class="time_show" decode="{{true}}">{{item.StartTime}}</text>
+                  <view>
                   <text class="time_show" decode="{{true}}">{{item.EndTime}}</text>
+                  </view>
                 </view>
               </view>
             </view>
