@@ -1,1 +1,6 @@
 /* pages/record/record.wxss */
+
+.content1{
+  font-size: 32rpx;
+  font-weight: bold;
+}

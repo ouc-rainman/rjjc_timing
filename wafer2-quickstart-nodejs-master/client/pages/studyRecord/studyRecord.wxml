@@ -1,13 +1,19 @@
 <!--pages/studyRecord/studyRecord.wxml-->
 
 <view>
-  <view wx:if="{{arrayTest.length==0}}" class="content1">{{today}}</view>
-  <view wx:else>
-    <block wx:for="{{arrayTest}}" wx:key="key">
-      <view class="content1">{{item.Summary}}</view>
-      <text class="content2" decode="{{true}}">开始时间&nbsp;&nbsp;&nbsp;{{item.StartTime}}</text>
-      <text class="content2" decode="{{true}}">\n结束时间&nbsp;&nbsp;&nbsp;{{item.EndTime}}</text>
-      <text class="content2" decode="{{true}}">\n学习时长&nbsp;&nbsp;&nbsp;{{item.OpenId}}</text>
-    </block>
-  </view>
+  <view class='record_title'>学习历程</view>
+  <scroll-view class='scroll' scroll-y="true">
+    <view wx:if="{{arrayTest.length==0}}" class="content1">{{today}}</view>
+    <view wx:else>
+      <block wx:for="{{arrayTest}}" wx:key="key">
+        <view class='record_content'>
+          <view class="summary">{{item.Summary}}</view>
+          <text class="item_text" decode="{{true}}">开始时间&nbsp;&nbsp;&nbsp;{{item.StartTime}}</text>
+          <text class="item_text" decode="{{true}}">\n结束时间&nbsp;&nbsp;&nbsp;{{item.EndTime}}</text>
+          <text class="item_text" decode="{{true}}">\n学习时长&nbsp;&nbsp;&nbsp;{{item.OpenId}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  
 </view>

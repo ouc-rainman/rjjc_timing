@@ -163,7 +163,7 @@ text-align: center;
   vertical-align: text-top;
 }
 .plan_list_item{
-  border-top: 1px solid #444;
+  border-top: 1px solid #eee;
   margin: 20rpx 0;
 }
 #plan_week{
