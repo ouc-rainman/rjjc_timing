@@ -68,4 +68,13 @@ router.post('/GetToday', controllers.GetToday)
 // POST GetHistory
 router.post('/GetHistory', controllers.GetHistory)
 
+// POST commitMoment
+router.post('/commitMoment', controllers.commitMoment)
+
+// POST showMoment
+router.post('/showMoment', controllers.showMoment)
+
+// POST GetNow
+router.post('/GetNow', controllers.GetNow)
+
 module.exports = router

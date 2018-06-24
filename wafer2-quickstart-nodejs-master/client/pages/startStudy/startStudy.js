@@ -14,7 +14,27 @@ Page({
     startTime: '',
     sumTime: '',
   },
-
+  //当前学习
+  GetNow: function () {
+    wx.request({
+      url: config.service.GetNowUrl,
+      method: 'post',
+      //这里定义传递的参数
+      data: {
+        userInfo: app.globalData.userInfo,
+      },
+      success: res => {
+        let temp = res.data.data
+        console.log(temp)
+        var timestamp=Date.parse(new Date())/1000
+        this.setData({
+          summary:temp.Summary,
+          startTime: util.formatStampTime(temp.StartTime, 'Y/M/D h:m:s'),
+          sumTime: calcuDiff.calcuDiff(temp.StartTime, timestamp),
+        })
+      }
+    })
+  },
   // 停止学习
   StopWatch: function () {
     wx.request({
@@ -51,6 +71,8 @@ Page({
     this.setData({
       summary: app.globalData.summary
     })
+    var that=this
+    that.GetNow()
   },
 
   /**

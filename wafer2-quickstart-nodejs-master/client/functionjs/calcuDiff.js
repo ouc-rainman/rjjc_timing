@@ -1,5 +1,5 @@
 var calcuDiff = function (time1, time2) {
-  // console.log(time1,time2)hhhhhhhh
+  console.log(time1,time2)
   var diff = time2 - time1
   // console.log(diff,'diff')
   var sec = diff % 60

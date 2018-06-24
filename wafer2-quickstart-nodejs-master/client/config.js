@@ -57,7 +57,16 @@ var config = {
         GetTodayUrl: `${host}/weapp/GetToday`,
 
         // GetHistory
-        GetHistoryUrl: `${host}/weapp/GetHistory`
+        GetHistoryUrl: `${host}/weapp/GetHistory`,
+
+        // commitMoment
+        commitMomentUrl: `${host}/weapp/commitMoment`,
+
+        // showMoment
+        showMomentUrl: `${host}/weapp/showMoment`,
+
+        // GetNow
+        GetNowUrl: `${host}/weapp/GetNow`
 
     }
 };
