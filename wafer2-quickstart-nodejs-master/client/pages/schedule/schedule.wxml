@@ -1,4 +1,5 @@
-<!--schedule/schedule/schedule.wxml-->
+<!--pages/schedule/schedule.wxml-->
+
 <view id="panel" class="flex-column">
   <view class="flex-cell flex-row">
     <text class="flex-cell flex-row">学习天数</text>
@@ -56,22 +57,14 @@
 
   <view class="text2">今天</view>
 
-  <view wx:if="{{bedTime.length==0}}" class="content1">{{today}}</view>
+  <view wx:if="{{sum}}" class="content1">{{today}}</view>
   <view wx:else>
-    <block wx:for="{{bedTime}}" wx:key="key">
-      <view wx:if="{{item.type==1}}">
-        <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
-      </view>
-      <view wx:if="{{item.type==2}}">
-        <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
-      </view>
-    </block>
-    <block wx:for="{{arrayTest}}" wx:key="key">
-      <view class="content1">{{item.Summary}}</view>
-      <text class="content2" decode="{{true}}">开始时间&nbsp;&nbsp;&nbsp;{{item.StartTime}}</text>
-      <text class="content2" decode="{{true}}">\n结束时间&nbsp;&nbsp;&nbsp;{{item.EndTime}}</text>
-      <text class="content2" decode="{{true}}">\n学习时长&nbsp;&nbsp;&nbsp;{{item.OpenId}}</text>
-    </block>
+  <block wx:for="{{arrayTest}}" wx:key="key">
+  <view class="content1">{{item.Summary}}</view>
+   <text class="content2" decode="{{true}}">开始时间&nbsp;&nbsp;&nbsp;{{item.StartTime}}</text>
+    <text class="content2" decode="{{true}}">\n结束时间&nbsp;&nbsp;&nbsp;{{item.EndTime}}</text>
+    <text class="content2" decode="{{true}}">\n学习时长&nbsp;&nbsp;&nbsp;{{item.OpenId}}</text>
+  </block>
   </view>
 
   <view class="text3">昨天</view>
