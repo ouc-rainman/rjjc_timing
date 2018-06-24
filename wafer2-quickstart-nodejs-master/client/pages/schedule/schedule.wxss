@@ -2,8 +2,8 @@
 
 #panel {
   background: #fff;
-  border-top: 1rpx solid #ddd;
-  border-bottom: 1rpx solid #ddd;
+  /* border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd; */
 }
 
 .flex-row {

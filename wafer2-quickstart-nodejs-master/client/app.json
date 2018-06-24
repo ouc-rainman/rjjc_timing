@@ -3,7 +3,6 @@
     "pages/login/login",
     "pages/index/index",
     "pages/sign/sign",  
-    "pages/message/message", 
     "pages/plan/plan",
     "pages/schedule/schedule",
     "pages/startStudy/startStudy",
@@ -19,7 +18,7 @@
     "pages/mysqltest/mysqltest"
   ],
   "window":{
-    "backgroundColor":"#F6F6F6",
+    "backgroundColor":"#ffffff",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Timing",
