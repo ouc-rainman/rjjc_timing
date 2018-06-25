@@ -157,9 +157,12 @@ Page({
 
       }
     })
-    wx.switchTab({
-      url: '../showcommunity/showcommunity',
-    })
+    setTimeout(function () {
+      wx.switchTab({
+        url: '../showcommunity/showcommunity',
+      })
+    },2000)
+    util.showSuccess('发表成功')
   }
 
 })
