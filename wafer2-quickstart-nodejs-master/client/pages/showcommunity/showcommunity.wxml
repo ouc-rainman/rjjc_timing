@@ -30,6 +30,7 @@
           class="uploader-image" 
           src="{{imgUrl}}"
           bindtap="previewImg"
+          data-curl="{{imgUrl}}"
         ></image>
       </view>
     </view>

@@ -12,7 +12,8 @@ Page({
    */
   data: {
     IMGURLS : [],
-    Moment: 0
+    Moment: 0,
+    PicNum: 0
   },
 
   /**
@@ -116,19 +117,32 @@ Page({
   },
 
   // 预览图片
-  previewImg: function () {
+  previewImg: function (e) {
+    var curl = e.currentTarget.dataset["curl"]
+    console.log(e)
+    console.log(curl)
     wx.previewImage({
-      current: this.data.imgUrl,
-      urls: [this.data.imgUrl]
+      current: curl,
+      urls: [curl]
     })
   },
 
   // 增加一个图片地址
   addPicUrl: function (newurl) {
+    if(this.data.PicNum == 9){
+      util.showSuccess('别发了！！！！')
+      return false
+    }
+    
     let tt = this.data.IMGURLS
     tt.push(newurl)
     this.setData({
       IMGURLS: tt
+    })
+    this.data.PicNum = this.data.PicNum+1
+    let numm = this.data.PicNum
+    this.setData({
+      PicNum: numm
     })
   },
 
