@@ -119,6 +119,9 @@ page {
 .item_passage{
   margin: 10rpx 20rpx 20rpx 20rpx;
   font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;  /**用来实现换行的*/
 }
 .item_image{
   width: 100%;
@@ -128,4 +131,12 @@ page {
   border-radius: 4rpx;
   box-shadow: 0 0 0 1px #eee,
     0 1px 2px 1px #efefef;
+}
+.pose_new{
+  position: fixed;
+  width: 100%;
+}
+.circle_container{
+  width: 100%;
+  margin-top: 100rpx;
 }

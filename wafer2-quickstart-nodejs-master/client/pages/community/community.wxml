@@ -1,31 +1,32 @@
 <!--pages/community/community.wxml-->
-
-<view class="itemView">记录
-    <input class="input" name="userName" placeholder="请在此输入记录" bindinput ="getMoment"/>
+<view>
+  <view class="itemView">
+    <textarea class="input"  name="userName" placeholder="请在此输入记录" bindinput ="getMoment"></textarea> 
   </view>
 
-<view class="uploader">
-  <view class="uploader-text" bindtap="doUpload">
-    <text>上传图片</text>
-  </view>
-  
-  <view wx:if="{{IMGURLS.length}}">
-    <block wx:for="{{IMGURLS}}">
-      <view class="uploader-container">
-        <image
-          class="uploader-image" 
-          src="{{IMGURLS[index]}}"
-          bindtap="previewImg"
-        ></image>
-      </view>
-        <!-- <view>000000000000000</view>   -->
-       <!-- <view>{{imgUrl}}</view>  -->
-    </block>
-  </view>
+  <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    
+    <view wx:if="{{IMGURLS.length}}">
+      <block wx:for="{{IMGURLS}}">
+        <view class="uploader-container">
+          <image
+            class="uploader-image" 
+            src="{{IMGURLS[index]}}"
+            bindtap="previewImg"
+          ></image>
+        </view>
+          <!-- <view>000000000000000</view>   -->
+        <!-- <view>{{imgUrl}}</view>  -->
+      </block>
+    </view>
 
+  </view>
+  <!-- <view>{{Moment}}</view> -->
+  <button bindtap='commitMoment'>发表</button>
+
+
+  <!-- <view>{{IMGURLS}}</view> -->
 </view>
-<!-- <view>{{Moment}}</view> -->
-<button bindtap='commitMoment'>发表</button>
-
-
-<!-- <view>{{IMGURLS}}</view> -->

@@ -2,9 +2,8 @@
 
 <view>
   <view class='record_title'>学习历程</view>
-  <scroll-view class='scroll' scroll-y="true">
-    <view wx:if="{{array.length==0}}" class="content1">{{today}}</view>
-    <view wx:else>
+  <view wx:if="{{array.length==0}}" class="content1">{{today}}</view>
+  <view class='content1' wx:else>
       <block wx:for="{{array}}" wx:key="key">
         <view class='record_content' wx:if="{{item.type==1}}">
           <text class="item_text" decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
@@ -19,7 +18,6 @@
           <text class="item_text" decode="{{true}}">\n学习时长&nbsp;&nbsp;&nbsp;{{item.OpenId}}</text>
         </view>
       </block>
-    </view>
-  </scroll-view>
+  </view>
 
 </view>

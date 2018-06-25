@@ -3,35 +3,38 @@
   <view class='pose_title'>学习圈</view>
   <navigator class='pose_add' url="../community/community" hover-class="navigator-hover">+</navigator>
 </view>
-<view class='circle_item' wx:for='{{MomentText}}' wx:for-item='text'>
-  <view class='item_top'>
-    <image
-    class="Avatar" 
-    src="{{text['AvatarUrl']}}"
-    mode="aspectFit"
-    bindtap="previewImg"
-    ></image>
-    <view class='item_info_content'>
-      <text class='item_info' id='item_nickname'>{{text.NickName}}</text>
-      <text class='item_info' id='item_time'>{{text.momentTime}}</text>
+<view class='circle_container'>
+  <view class='circle_item' wx:for='{{MomentText}}' wx:for-item='text'>
+    <view class='item_top'>
+      <image
+      class="Avatar" 
+      src="{{text['AvatarUrl']}}"
+      mode="aspectFit"
+      bindtap="previewImg"
+      ></image>
+      <view class='item_info_content'>
+        <text class='item_info' id='item_nickname'>{{text.NickName}}</text>
+        <text class='item_info' id='item_time'>{{text.momentTime}}</text>
+      </view>
+      
     </view>
     
-  </view>
-  
-  <!-- openId: {{text.openId}} -->
-  
-  <view class='item_passage'>
-    {{text.momentText}}
-  </view>
-  <view class='item_image'>
-    <view class='uploader-container' wx:for="{{text['urls']}}" wx:for-item='imgUrl'>
-      <image
-        class="uploader-image" 
-        src="{{imgUrl}}"
-        bindtap="previewImg"
-      ></image>
+    <!-- openId: {{text.openId}} -->
+    
+    <view class='item_passage'>
+      {{text.momentText}}
+    </view>
+    <view class='item_image'>
+      <view class='uploader-container' wx:for="{{text['urls']}}" wx:for-item='imgUrl'>
+        <image
+          class="uploader-image" 
+          src="{{imgUrl}}"
+          bindtap="previewImg"
+        ></image>
+      </view>
     </view>
   </view>
 </view>
+
 
 

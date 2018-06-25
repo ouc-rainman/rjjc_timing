@@ -1,9 +1,7 @@
 /* pages/community/community.wxss */
 page {
     background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+ 
 }
 
 .userinfo, .uploader, .tunnel {
@@ -50,9 +48,17 @@ page {
   height: 210rpx
 }
 button{
+  width: 200rpx;
   margin-top: 100rpx;
   background: #fff;
   border: 1px solid #444;
   border-radius: 999px;
   font-size: 36rpx;
 }
+.input{
+  display: block;
+  height: 300rpx;
+  width: 96%;
+  margin: 10rpx auto;
+}
+

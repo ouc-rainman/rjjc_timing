@@ -5,7 +5,7 @@
     <text class="flex-cell flex-row">学习时长</text>
     <text class="flex-cell flex-row">日均学习时长</text>
   </view>
-  <view class="flex-row flex-cell">
+  <view class="flex-row flex-cell" id='time_text'>
     <text class="flex-cell flex-row">{{day}}天</text>
     <text class="flex-cell flex-row">{{hour}}小时</text>
     <text class="flex-cell flex-row">{{ahour}}小时</text>
