@@ -1,11 +1,11 @@
 <!--schedule/startStudy/startStudy.wxml-->
 
 <view class='container'>
-<text>当前正在学习</text>
-<text>{{summary}}</text>
-<text>开始学习时间</text>
-<text>{{startTime}}</text>
-<text>已经学习了</text>
-<text>{{sumTime}}</text>
-<button bindtap='StopWatch'>停止学习</button>
+  <text class='text1'>当前正在学习</text>
+  <text>{{summary}}</text>
+  <text class='text1'>开始学习时间</text>
+  <text>{{startTime}}</text>
+  <text class='text1'>已经学习了</text>
+  <text>{{sumTime}}</text>
+  <button bindtap='StopWatch'>停止学习</button>
 </view>
