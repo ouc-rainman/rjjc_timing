@@ -108,10 +108,13 @@ Page({
   },
   
   // 预览图片
-  previewImg: function () {
+  previewImg: function (e) {
+    var curl = e.currentTarget.dataset["curl"]
+    console.log(e)
+    console.log(curl)
     wx.previewImage({
-      current: this.data.imgUrl,
-      urls: [this.data.imgUrl]
+      current: curl,
+      urls: [curl]
     })
   },
 })
