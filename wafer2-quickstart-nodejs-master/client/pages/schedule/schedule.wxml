@@ -22,7 +22,10 @@
   <view class="item_item" class="top_image">
     <image src="../../images/start_icon.png" class="image" wx:if="{{studyStatus}}" bindtap="goToStatus"></image>
     <image src="../../images/start_icon.png" class="image" wx:else bindtap="goToPlan"></image>
-    <view>
+    <view wx:if='{{studyStatus}}'>
+      <text class="text" bindtap='StartWatch'>正在学习</text>
+    </view>
+    <view wx:else>
       <text class="text" bindtap='StartWatch'>开始学习</text>
     </view>
   </view>
@@ -100,10 +103,10 @@
       <view wx:else>
         <block wx:for="{{mergeY}}" wx:key="key">
           <view class='plan_list_item' wx:if="{{item.type==1}}">
-            <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            <text decode="{{true}}" class='plan_title'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起床打卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
           <view class='plan_list_item' wx:elif="{{item.type==2}}">
-            <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            <text decode="{{true}}" class='plan_title'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;睡觉打卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
           <view wx:else>
             <view class='plan_list_item'>
@@ -144,10 +147,10 @@
       <view wx:else>
         <block wx:for="{{mergeB}}" wx:key="key">
           <view class='plan_list_item' wx:if="{{item.type==1}}">
-            <text decode="{{true}}">起床打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            <text decode="{{true}}" class='plan_title'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起床打卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
           <view class='plan_list_item' wx:elif="{{item.type==2}}">
-            <text decode="{{true}}">睡觉打卡&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
+            <text decode="{{true}}" class='plan_title'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;睡觉打卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.timestamp}}</text>
           </view>
           <view wx:else>
             <view class='plan_list_item'>

@@ -105,5 +105,13 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  
+  // 预览图片
+  previewImg: function () {
+    wx.previewImage({
+      current: this.data.imgUrl,
+      urls: [this.data.imgUrl]
+    })
+  },
 })

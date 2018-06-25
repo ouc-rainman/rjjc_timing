@@ -15,11 +15,10 @@
         <image
           class="uploader-image" 
           src="{{IMGURLS[index]}}"
-          mode="aspectFit"
           bindtap="previewImg"
         ></image>
       </view>
-        <view>000000000000000</view>  
+        <!-- <view>000000000000000</view>   -->
        <!-- <view>{{imgUrl}}</view>  -->
     </block>
   </view>

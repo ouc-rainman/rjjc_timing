@@ -14,7 +14,6 @@
     "pages/phone/phone",
     "pages/community/community",
     "pages/showcommunity/showcommunity",
-    "pages/addCgi/addCgi",
     "pages/mysqltest/mysqltest"
   ],
   "window":{
