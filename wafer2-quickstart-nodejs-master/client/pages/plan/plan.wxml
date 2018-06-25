@@ -9,26 +9,13 @@
   <!--drawer content-->  
   <view class="drawer_title">学习计划</view>  
   <view class="drawer_content">  
+     
     <view class="top grid">  
-      <label class="title col-0">学习方法</label>  
-      <input class="input_base input_h30 col-1" name="rName" value="自由学习计时or番茄学习计时"></input>  
-    </view>  
-    <view class="top grid">  
-      <label class="title col-0">学习内容</label>  
+      
       <input class="input_base input_h30 col-1" name="mobile" value="" bindinput='getSummary'></input>  
     </view>  
-    <view class="top grid">  
-      <label class="title col-0">开始时间</label>  
-      <input class="input_base input_h30 col-1" name="phone" value="15点"></input>  
-    </view>  
-    <view class="top grid">  
-      <label class="title col-0">学习时长</label>  
-      <input class="input_base input_h30 col-1" name="Email" value="2个小时"></input>  
-    </view>  
-    <view class="top bottom grid">  
-      <label class="title col-0">备注</label>  
-      <input class="input_base input_h30 col-1" name="bz"></input>  
-    </view>  
+     
+
   </view>  
   <view class="btn_ok" bindtap="powerDrawer" data-statu="close">开始学习</view>  
 </view>

@@ -32,7 +32,7 @@
   left: 0;  
   z-index: 1001;  
   background: #FAFAFA;  
-  margin: -150px 50rpx 0 50rpx;  
+  margin: -120px 50rpx 0 50rpx;  
   border-radius: 3px;  
 }  
   
@@ -42,7 +42,7 @@
   text-align: center;  
 }  
 .drawer_content {  
-  height: 210px;  
+  height: 80px;  
   overflow-y: scroll; /*超出父盒子高度可滚动*/  
 }  
   
@@ -55,7 +55,7 @@
 }  
   
 .top{  
-    padding-top:8px;  
+    padding-top:10px;  
 }  
 .bottom {  
     padding-bottom:8px;  
@@ -73,6 +73,7 @@
     border: 2rpx solid #ccc;  
     padding-left: 10rpx;  
     margin-right: 50rpx;  
+    margin-left: 50rpx;
 }  
 .input_h30{  
     height: 30px;  
